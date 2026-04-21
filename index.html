@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Junk Food Hub</title>
+
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #fff3e0;
+  transition: 0.3s;
+}
+
+header {
+  background: #ff5722;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+/* CATEGORY */
+.categories {
+  text-align: center;
+  margin: 10px;
+}
+
+.categories button {
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  background: #ff5722;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* FOOD */
+.foods {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px;
+}
+
+.card {
+  width: 180px;
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* CART */
+.cart {
+  text-align: center;
+  background: white;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* DARK MODE */
+.dark {
+  background: #1e1e1e;
+  color: white;
+}
+
+.dark .card,
+.dark .cart {
+  background: #333;
+  color: white;
+}
+
+button {
+  cursor: pointer;
+}
+
+.hidden { display:none; }
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🍔 Junk Food Hub</h1>
+  <button onclick="toggleDark()">🌙 Dark Mode</button>
+</header>
+
+<!-- CATEGORY -->
+<div class="categories">
+  <button onclick="filter('all')">All</button>
+  <button onclick="filter('burger')">Burgers</button>
+  <button onclick="filter('pizza')">Pizza</button>
+  <button onclick="filter('fries')">Fries</button>
+  <button onclick="filter('drink')">Drinks</button>
+</div>
+
+<!-- FOOD -->
+<div class="foods">
+
+  <div class="card burger">
+    <img src="https://images.unsplash.com/photo-1606755962773-d324e2b3c9b5?w=500">
+    <h3>Burger</h3>
+    <p>₹120</p>
+    <button onclick="add('Burger',120)">Add</button>
+  </div>
+
+  <div class="card pizza">
+    <img src="https://images.unsplash.com/photo-1601924582970-9238bcb495d9?w=500">
+    <h3>Pizza</h3>
+    <p>₹250</p>
+    <button onclick="add('Pizza',250)">Add</button>
+  </div>
+
+  <div class="card fries">
+    <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500">
+    <h3>Fries</h3>
+    <p>₹90</p>
+    <button onclick="add('Fries',90)">Add</button>
+  </div>
+
+  <div class="card drink">
+    <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500">
+    <h3>Coke</h3>
+    <p>₹60</p>
+    <button onclick="add('Coke',60)">Add</button>
+  </div>
+
+</div>
+
+<!-- CART -->
+<div class="cart">
+  <h2>🛒 Cart</h2>
+  <p id="items">Empty</p>
+  <p id="total">Total: ₹0</p>
+
+  <button onclick="pay()">Checkout 💳</button>
+
+  <div id="qr" class="hidden">
+    <h3>Scan QR to Pay (Demo)</h3>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi-demo">
+  </div>
+
+  <button onclick="clearCart()">Clear Cart</button>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let total = localStorage.getItem("total") || 0;
+
+function update(){
+  document.getElementById("items").innerText = cart.join(", ") || "Empty";
+  document.getElementById("total").innerText = "Total: ₹" + total;
+  localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("total", total);
+}
+
+function add(item, price){
+  cart.push(item);
+  total = Number(total) + price;
+  update();
+}
+
+function filter(type){
+  let items = document.querySelectorAll(".card");
+
+  items.forEach(i=>{
+    if(type === "all" || i.classList.contains(type)){
+      i.style.display = "block";
+    } else {
+      i.style.display = "none";
+    }
+  });
+}
+
+function pay(){
+  if(cart.length === 0){
+    alert("Cart empty!");
+    return;
+  }
+  document.getElementById("qr").classList.remove("hidden");
+}
+
+function clearCart(){
+  cart = [];
+  total = 0;
+  update();
+  document.getElementById("qr").classList.add("hidden");
+}
+
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+
+update();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop - ShoeHub</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">
+      <h1>👟 ShoeHub</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="men.html">Men</a></li>
+      <li><a href="women.html">Women</a></li>
+      <li><a href="kids.html">Kids</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-icons">
+      <a href="cart.html">🛒 Cart</a>
+      <a href="account.html">👤 Account</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Shop Header -->
+<section class="shop-header">
+  <div class="container">
+    <h1>Shop All Shoes</h1>
+    <p>Find your perfect pair from our collection</p>
+  </div>
+</section>
+
+<!-- Filters and Products -->
+<section class="shop-content">
+  <div class="container">
+    <div class="shop-layout">
+      <!-- Filters Sidebar -->
+      <aside class="filters">
+        <h3>Filters</h3>
+
+        <!-- Price Range -->
+        <div class="filter-group">
+          <h4>Price Range</h4>
+          <input type="range" id="price-min" min="1000" max="10000" value="1000">
+          <input type="range" id="price-max" min="1000" max="10000" value="10000">
+          <p>₹<span id="min-price">1000</span> - ₹<span id="max-price">10000</span></p>
+        </div>
+
+        <!-- Size -->
+        <div class="filter-group">
+          <h4>Size</h4>
+          <div class="size-options">
+            <button class="size-btn" data-size="6">6</button>
+            <button class="size-btn" data-size="7">7</button>
+            <button class="size-btn" data-size="8">8</button>
+            <button class="size-btn" data-size="9">9</button>
+            <button class="size-btn" data-size="10">10</button>
+            <button class="size-btn" data-size="11">11</button>
+            <button class="size-btn" data-size="12">12</button>
+          </div>
+        </div>
+
+        <!-- Color -->
+        <div class="filter-group">
+          <h4>Color</h4>
+          <div class="color-options">
+            <button class="color-btn" data-color="black" style="background: black;"></button>
+            <button class="color-btn" data-color="white" style="background: white; border: 1px solid #ddd;"></button>
+            <button class="color-btn" data-color="red" style="background: red;"></button>
+            <button class="color-btn" data-color="blue" style="background: blue;"></button>
+            <button class="color-btn" data-color="brown" style="background: brown;"></button>
+          </div>
+        </div>
+
+        <!-- Category -->
+        <div class="filter-group">
+          <h4>Category</h4>
+          <select id="category-filter">
+            <option value="all">All Categories</option>
+            <option value="sneakers">Sneakers</option>
+            <option value="formal">Formal Shoes</option>
+            <option value="sports">Sports Shoes</option>
+            <option value="sandals">Sandals</option>
+          </select>
+        </div>
+      </aside>
+
+      <!-- Products Section -->
+      <main class="products-section">
+        <!-- Sorting -->
+        <div class="sorting">
+          <span>Sort by:</span>
+          <select id="sort-select">
+            <option value="popularity">Popularity</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="newest">Newest</option>
+          </select>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid" id="shop-products-grid">
+          <!-- Products will be loaded here -->
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>&copy; 2024 ShoeHub. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="shop.js"></script>
+</body>
+</html>

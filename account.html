@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account - ShoeHub</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">
+      <h1>👟 ShoeHub</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="men.html">Men</a></li>
+      <li><a href="women.html">Women</a></li>
+      <li><a href="kids.html">Kids</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-icons">
+      <a href="cart.html">🛒 Cart</a>
+      <a href="account.html">👤 Account</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Account Header -->
+<section class="account-header">
+  <div class="container">
+    <h1>My Account</h1>
+  </div>
+</section>
+
+<!-- Account Content -->
+<section class="account-content">
+  <div class="container">
+    <div class="account-tabs">
+      <button class="tab-btn active" onclick="showTab('login')">Login</button>
+      <button class="tab-btn" onclick="showTab('register')">Register</button>
+    </div>
+
+    <!-- Login Form -->
+    <div id="login-tab" class="account-form">
+      <h2>Login to Your Account</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" required>
+        </div>
+        <button type="submit" class="account-btn">Login</button>
+      </form>
+    </div>
+
+    <!-- Register Form -->
+    <div id="register-tab" class="account-form" style="display: none;">
+      <h2>Create New Account</h2>
+      <form id="register-form">
+        <div class="form-group">
+          <label for="register-name">Full Name</label>
+          <input type="text" id="register-name" required>
+        </div>
+        <div class="form-group">
+          <label for="register-email">Email</label>
+          <input type="email" id="register-email" required>
+        </div>
+        <div class="form-group">
+          <label for="register-password">Password</label>
+          <input type="password" id="register-password" required>
+        </div>
+        <div class="form-group">
+          <label for="register-confirm">Confirm Password</label>
+          <input type="password" id="register-confirm" required>
+        </div>
+        <button type="submit" class="account-btn">Register</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>&copy; 2024 ShoeHub. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Account tabs functionality
+function showTab(tabName) {
+    const tabs = document.querySelectorAll('.account-form');
+    const buttons = document.querySelectorAll('.tab-btn');
+
+    tabs.forEach(tab => tab.style.display = 'none');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    document.getElementById(tabName + '-tab').style.display = 'block';
+    event.target.classList.add('active');
+}
+
+// Form submissions
+document.getElementById('login-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Login functionality would be implemented here!');
+});
+
+document.getElementById('register-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const password = document.getElementById('register-password').value;
+    const confirm = document.getElementById('register-confirm').value;
+
+    if (password !== confirm) {
+        alert('Passwords do not match!');
+        return;
+    }
+
+    alert('Registration functionality would be implemented here!');
+});
+</script>
+</body>
+</html>

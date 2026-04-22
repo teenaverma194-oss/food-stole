@@ -1,261 +1,135 @@
-// Junk Food Paradise - Product Database
-const foods = [
-    // Burgers
+// Shoe Store - Product Database
+const shoes = [
+    // Sneakers
     {
         id: 1,
-        name: "Classic Cheeseburger",
-        category: "burgers",
-        price: 5.99,
-        image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=400&fit=crop",
-        description: "Juicy beef patty with melted cheese and fresh veggies"
+        name: "Classic White Sneakers",
+        category: "sneakers",
+        price: 2999,
+        image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop",
+        description: "Comfortable white sneakers for everyday wear"
     },
     {
         id: 2,
-        name: "Bacon Burger Supreme",
-        category: "burgers",
-        price: 7.99,
-        image: "https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&h=400&fit=crop",
-        description: "Crispy bacon, double patties, and all the toppings"
+        name: "Black Running Shoes",
+        category: "sports",
+        price: 3499,
+        image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=300&fit=crop",
+        description: "Lightweight running shoes with advanced cushioning"
     },
     {
         id: 3,
-        name: "Mushroom Swiss Burger",
-        category: "burgers",
-        price: 6.49,
-        image: "https://images.unsplash.com/photo-1571407614652-ec28fe8e8cb9?w=400&h=400&fit=crop",
-        description: "Sautéed mushrooms and melted Swiss cheese"
+        name: "Brown Leather Boots",
+        category: "formal",
+        price: 4999,
+        image: "https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400&h=300&fit=crop",
+        description: "Premium leather boots for formal occasions"
     },
-
-    // Pizza
     {
         id: 4,
-        name: "Pepperoni Pizza",
-        category: "pizza",
-        price: 12.99,
-        image: "https://images.unsplash.com/photo-1628840042765-356cda07f4ee?w=400&h=400&fit=crop",
-        description: "Classic pepperoni with mozzarella on crispy crust"
+        name: "Casual Sandals",
+        category: "sandals",
+        price: 1499,
+        image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&h=300&fit=crop",
+        description: "Comfortable sandals for summer days"
     },
     {
         id: 5,
-        name: "Supreme Meat Lovers",
-        category: "pizza",
-        price: 14.99,
-        image: "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=400&h=400&fit=crop",
-        description: "Pepperoni, sausage, bacon, and ham"
+        name: "Red High Heels",
+        category: "women",
+        price: 3999,
+        image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=300&fit=crop",
+        description: "Elegant red heels for special occasions"
     },
     {
         id: 6,
-        name: "Cheese Stuffed Crust",
-        category: "pizza",
-        price: 13.99,
-        image: "https://images.unsplash.com/photo-1575866519007-11549a8936cf?w=400&h=400&fit=crop",
-        description: "Extra cheese baked right into the crust edges"
+        name: "Kids Sports Shoes",
+        category: "kids",
+        price: 1999,
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop",
+        description: "Durable sports shoes for active kids"
     },
-
-    // Snacks
     {
         id: 7,
-        name: "Golden French Fries",
-        category: "snacks",
-        price: 3.49,
-        image: "https://images.unsplash.com/photo-1583162088688-d0213dc5d969?w=400&h=400&fit=crop",
-        description: "Crispy on the outside, fluffy on the inside"
+        name: "Men's Formal Oxfords",
+        category: "men",
+        price: 4499,
+        image: "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=400&h=300&fit=crop",
+        description: "Classic oxford shoes for professional look"
     },
     {
         id: 8,
-        name: "Loaded Nachos",
-        category: "snacks",
-        price: 6.99,
-        image: "https://images.unsplash.com/photo-1599599810694-b4af21b8b811?w=400&h=400&fit=crop",
-        description: "Tortilla chips loaded with cheese, jalapeños, and more"
-    },
-    {
-        id: 9,
-        name: "Chicken Wings Combo",
-        category: "snacks",
-        price: 8.99,
-        image: "https://images.unsplash.com/photo-1608039891528-151b79624ba9?w=400&h=400&fit=crop",
-        description: "12 pieces of crispy, spicy wings with dipping sauce"
-    },
-
-    // Desserts
-    {
-        id: 10,
-        name: "Chocolate Milkshake",
-        category: "desserts",
-        price: 5.49,
-        image: "https://images.unsplash.com/photo-1595521624311-8e9d8bf2b70e?w=400&h=400&fit=crop",
-        description: "Thick and creamy chocolate shake with whipped cream"
-    },
-    {
-        id: 11,
-        name: "Deep Fried Oreos",
-        category: "desserts",
-        price: 4.99,
-        image: "https://images.unsplash.com/photo-1585518019940-cf5e9b95f54a?w=400&h=400&fit=crop",
-        description: "Crispy fried coating with melted Oreo cookies inside"
-    },
-    {
-        id: 12,
-        name: "Caramel Brownie Sundae",
-        category: "desserts",
-        price: 6.99,
-        image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=400&fit=crop",
-        description: "Rich brownie, ice cream, and caramel sauce"
-    },
-
-    // Drinks
-    {
-        id: 13,
-        name: "Iced Cola",
-        category: "drinks",
-        price: 2.49,
-        image: "https://images.unsplash.com/photo-1554866585-5670fdf1f5e5?w=400&h=400&fit=crop",
-        description: "Classic carbonated cola served ice cold"
-    },
-    {
-        id: 14,
-        name: "Strawberry Smoothie",
-        category: "drinks",
-        price: 4.99,
-        image: "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=400&h=400&fit=crop",
-        description: "Fresh strawberries blended with yogurt and milk"
-    },
-    {
-        id: 15,
-        name: "Energy Drink Blast",
-        category: "drinks",
-        price: 3.99,
-        image: "https://images.unsplash.com/photo-1570098189028-65dd2e62f5b7?w=400&h=400&fit=crop",
-        description: "Energizing citrus flavor with a kick"
+        name: "Women's Ballet Flats",
+        category: "women",
+        price: 2499,
+        image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=300&fit=crop",
+        description: "Comfortable ballet flats for everyday elegance"
     }
 ];
 
-// Shopping Cart
-let cart = [];
-let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-let currentFilter = 'all';
+// Load products on page load
+document.addEventListener('DOMContentLoaded', function() {
+    loadBestSellers();
+    loadNewArrivals();
+});
 
-// Initialize the website
-function init() {
-    renderFoodItems();
-    setupFilters();
-    renderFavorites();
-    updateCartCount();
-}
+function loadBestSellers() {
+    const bestSellersGrid = document.getElementById('best-sellers-grid');
+    const bestSellers = shoes.slice(0, 4); // First 4 products as best sellers
 
-// Render food items to the grid
-function renderFoodItems() {
-    const grid = document.getElementById('food-grid');
-    grid.innerHTML = '';
-    
-    const filtered = currentFilter === 'all' 
-        ? foods 
-        : foods.filter(food => food.category === currentFilter);
-    
-    filtered.forEach(food => {
-        const isFavorite = favorites.find(fav => fav.id === food.id);
-        const foodCard = document.createElement('div');
-        foodCard.className = 'food-card';
-        foodCard.innerHTML = `
-            <div class="food-image">
-                <img src="${food.image}" alt="${food.name}">
-                <button class="favorite-btn ${isFavorite ? 'active' : ''}" onclick="toggleFavorite(${food.id})">
-                    ${isFavorite ? '❤️' : '🤍'}
-                </button>
-            </div>
-            <div class="food-info">
-                <h3>${food.name}</h3>
-                <p>${food.description}</p>
-                <div class="food-footer">
-                    <span class="price>$${food.price.toFixed(2)}</span>
-                    <button class="add-btn" onclick="addToCart(${food.id})">Add to Cart</button>
-                </div>
-            </div>
-        `;
-        grid.appendChild(foodCard);
+    bestSellers.forEach(shoe => {
+        const productCard = createProductCard(shoe);
+        bestSellersGrid.appendChild(productCard);
     });
 }
 
-// Setup filter buttons
-function setupFilters() {
-    const buttons = document.querySelectorAll('.filter-btn');
-    buttons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            buttons.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            currentFilter = this.dataset.filter;
-            renderFoodItems();
-        });
+function loadNewArrivals() {
+    const newArrivalsGrid = document.getElementById('new-arrivals-grid');
+    const newArrivals = shoes.slice(4, 8); // Next 4 products as new arrivals
+
+    newArrivals.forEach(shoe => {
+        const productCard = createProductCard(shoe);
+        newArrivalsGrid.appendChild(productCard);
     });
 }
 
-// Add item to cart
-function addToCart(foodId) {
-    const food = foods.find(f => f.id === foodId);
-    cart.push(food);
-    updateCartCount();
-    showNotification(`${food.name} added to cart!`);
+function createProductCard(shoe) {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+
+    card.innerHTML = `
+        <img src="${shoe.image}" alt="${shoe.name}">
+        <div class="product-info">
+            <h3>${shoe.name}</h3>
+            <p class="price">₹${shoe.price}</p>
+            <button class="add-to-cart-btn" onclick="addToCart(${shoe.id})">Add to Cart</button>
+        </div>
+    `;
+
+    return card;
 }
 
-// Toggle favorite
-function toggleFavorite(foodId) {
-    const food = foods.find(f => f.id === foodId);
-    const index = favorites.findIndex(fav => fav.id === foodId);
-    
-    if (index > -1) {
-        favorites.splice(index, 1);
+function addToCart(productId) {
+    // Simple cart functionality - save to localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingItem = cart.find(item => item.id === productId);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
     } else {
-        favorites.push(food);
+        cart.push({ id: productId, quantity: 1 });
     }
-    
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-    renderFoodItems();
-    renderFavorites();
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`Added ${shoes.find(s => s.id === productId).name} to cart!`);
 }
 
-// Render favorites
-function renderFavorites() {
-    const favoritesList = document.getElementById('favorites-list');
-    
-    if (favorites.length === 0) {
-        favoritesList.innerHTML = '<p class="empty-message">No favorites yet! Click the heart on any item to add it.</p>';
-        return;
-    }
-    
-    favoritesList.innerHTML = '';
-    favorites.forEach(food => {
-        const favCard = document.createElement('div');
-        favCard.className = 'favorite-card';
-        favCard.innerHTML = `
-            <img src="${food.image}" alt="${food.name}">
-            <div class="favorite-info">
-                <h4>${food.name}</h4>
-                <p>$${food.price.toFixed(2)}</p>
-                <button onclick="addToCart(${food.id})">Add to Cart</button>
-            </div>
-        `;
-        favoritesList.appendChild(favCard);
-    });
-}
-
-// Update cart count
-function updateCartCount() {
-    document.getElementById('cart-count').textContent = cart.length;
-}
-
-// Show notification
-function showNotification(message) {
-    const notification = document.createElement('div');
-    notification.className = 'notification';
-    notification.textContent = message;
-    document.body.appendChild(notification);
-    
-    setTimeout(() => notification.remove(), 2000);
-}
-
-// Initialize on page load
-window.addEventListener('DOMContentLoaded', init);
+// Newsletter form submission
+document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = this.querySelector('input[type="email"]').value;
+    alert(`Thank you for subscribing with ${email}!`);
+});
         price: 5999,
         image: "https://images.unsplash.com/photo-1543163521-9efcc06b755e?w=400&h=400&fit=crop",
         description: "Elegant formal footwear for business meetings",

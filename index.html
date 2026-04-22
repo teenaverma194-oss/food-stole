@@ -2,102 +2,157 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Junk Food Hub</title>
-
-<style>
-body {
-  font-family: Arial;
-  margin: 0;
-  background: #fff3e0;
-  transition: 0.3s;
-}
-
-header {
-  background: #ff5722;
-  color: white;
-  text-align: center;
-  padding: 15px;
-}
-
-/* CATEGORY */
-.categories {
-  text-align: center;
-  margin: 10px;
-}
-
-.categories button {
-  margin: 5px;
-  padding: 8px 12px;
-  border: none;
-  background: #ff5722;
-  color: white;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-/* FOOD */
-.foods {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin: 20px;
-}
-
-.card {
-  width: 180px;
-  background: white;
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-
-.card img {
-  width: 100%;
-  height: 120px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-/* CART */
-.cart {
-  text-align: center;
-  background: white;
-  margin: 20px;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-/* DARK MODE */
-.dark {
-  background: #1e1e1e;
-  color: white;
-}
-
-.dark .card,
-.dark .cart {
-  background: #333;
-  color: white;
-}
-
-button {
-  cursor: pointer;
-}
-
-.hidden { display:none; }
-
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Step Into Comfort & Style - Shoe Store</title>
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<header>
-  <h1>🍔 Junk Food Hub</h1>
-  <button onclick="toggleDark()">🌙 Dark Mode</button>
-</header>
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">
+      <h1>👟 ShoeHub</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#men">Men</a></li>
+      <li><a href="#women">Women</a></li>
+      <li><a href="#kids">Kids</a></li>
+      <li><a href="#collections">Collections</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-icons">
+      <a href="#cart">🛒 Cart</a>
+      <a href="#account">👤 Account</a>
+    </div>
+  </div>
+</nav>
 
-<!-- CATEGORY -->
+<!-- Hero Banner -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h2>Step Into Comfort & Style</h2>
+    <p>Discover the perfect pair for every occasion</p>
+    <a href="#shop" class="cta-button">Shop Now</a>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&h=600&fit=crop" alt="New Collection">
+  </div>
+</section>
+
+<!-- Featured Categories -->
+<section class="categories">
+  <div class="container">
+    <h2>Featured Categories</h2>
+    <div class="category-grid">
+      <div class="category-card">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop" alt="Sneakers">
+        <h3>Sneakers</h3>
+      </div>
+      <div class="category-card">
+        <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400&h=300&fit=crop" alt="Formal Shoes">
+        <h3>Formal Shoes</h3>
+      </div>
+      <div class="category-card">
+        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=300&fit=crop" alt="Sports Shoes">
+        <h3>Sports Shoes</h3>
+      </div>
+      <div class="category-card">
+        <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&h=300&fit=crop" alt="Sandals">
+        <h3>Sandals</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Best Sellers -->
+<section class="best-sellers">
+  <div class="container">
+    <h2>Best Sellers</h2>
+    <div class="product-grid" id="best-sellers-grid">
+      <!-- Products will be loaded here -->
+    </div>
+  </div>
+</section>
+
+<!-- New Arrivals -->
+<section class="new-arrivals">
+  <div class="container">
+    <h2>New Arrivals</h2>
+    <div class="product-grid" id="new-arrivals-grid">
+      <!-- Products will be loaded here -->
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="why-choose-us">
+  <div class="container">
+    <h2>Why Choose Us</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>🚚 Free Shipping</h3>
+        <p>On orders over ₹999</p>
+      </div>
+      <div class="feature">
+        <h3>↩️ Easy Returns</h3>
+        <p>30-day return policy</p>
+      </div>
+      <div class="feature">
+        <h3>⭐ Premium Quality</h3>
+        <p>Authentic brands & materials</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Customer Reviews -->
+<section class="reviews">
+  <div class="container">
+    <h2>Customer Reviews</h2>
+    <div class="review-grid">
+      <div class="review">
+        <p>"Amazing quality and fast delivery!"</p>
+        <span>- Rahul S.</span>
+      </div>
+      <div class="review">
+        <p>"Perfect fit and great comfort."</p>
+        <span>- Priya M.</span>
+      </div>
+      <div class="review">
+        <p>"Love the collection, will buy again!"</p>
+        <span>- Arjun K.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Signup -->
+<section class="newsletter">
+  <div class="container">
+    <h2>Stay Updated</h2>
+    <p>Subscribe to get latest updates on new arrivals and exclusive offers.</p>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>&copy; 2024 ShoeHub. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
 <div class="categories">
   <button onclick="filter('all')">All</button>
   <button onclick="filter('burger')">Burgers</button>

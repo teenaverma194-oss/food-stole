@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShoeHub - Step Into Comfort & Style</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Navigation */
+.navbar {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.logo h1 {
+    color: #ff5722;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.nav-icons a {
+    margin: 0 0.5rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Page Sections */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #ff5722, #ff8c42);
+    color: white;
+    padding: 4rem 2rem;
+    min-height: 60vh;
+}
+
+.hero-content {
+    flex: 1;
+    padding: 2rem;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background: white;
+    color: #ff5722;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background: #f0f0f0;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Sections */
+section {
+    padding: 4rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+/* Categories */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.category-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.category-card h3 {
+    padding: 1rem;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+/* Products */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 1rem;
+}
+
+.product-info h3 {
+    margin-bottom: 0.5rem;
+}
+
+.product-info .price {
+    font-weight: bold;
+    color: #ff5722;
+    font-size: 1.2rem;
+}
+
+.add-to-cart-btn {
+    background: #ff5722;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background: #e64a19;
+}
+
+/* Why Choose Us */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.feature {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.feature h3 {
+    margin-bottom: 1rem;
+    color: #ff5722;
+}
+
+/* Reviews */
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.review {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.review p {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.review span {
+    font-weight: bold;
+    color: #ff5722;
+}
+
+/* Newsletter */
+.newsletter {
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.newsletter-form input {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.newsletter-form button {
+    padding: 0.8rem 2rem;
+    background: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.newsletter-form button:hover {
+    background: #e64a19;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Shop Page Styles */
+.shop-header {
+    background: linear-gradient(135deg, #ff5722, #ff8c42);
+    color: white;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.shop-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.shop-content {
+    padding: 4rem 0;
+}
+
+.shop-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+}
+
+.filters {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    height: fit-content;
+}
+
+.filters h3 {
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.filter-group {
+    margin-bottom: 2rem;
+}
+
+.filter-group h4 {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.size-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.size-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.size-btn:hover,
+.size-btn.active {
+    background: #ff5722;
+    color: white;
+    border-color: #ff5722;
+}
+
+.color-options {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.color-btn {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.color-btn.active {
+    border-color: #ff5722;
+    transform: scale(1.1);
+}
+
+#category-filter {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.sorting {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+#sort-select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Category Pages */
+.category-header {
+    background: linear-gradient(135deg, #333, #555);
+    color: white;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.category-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.category-products {
+    padding: 4rem 0;
+}
+
+/* About Page */
+.about-header {
+    background: linear-gradient(135deg, #ff5722, #ff8c42);
+    color: white;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.about-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.brand-story {
+    padding: 4rem 0;
+    background: #f9f9f9;
+}
+
+.brand-story p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.mission-vision {
+    padding: 4rem 0;
+}
+
+.mv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.mv-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.mv-card h3 {
+    color: #ff5722;
+    margin-bottom: 1rem;
+}
+
+/* Contact Page */
+.contact-header {
+    background: linear-gradient(135deg, #ff5722, #ff8c42);
+    color: white;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.contact-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.contact-content {
+    padding: 4rem 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.contact-form h2,
+.contact-info h2 {
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.submit-btn {
+    background: #ff5722;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: #e64a19;
+}
+
+.info-item {
+    margin-bottom: 2rem;
+}
+
+.info-item h3 {
+    color: #ff5722;
+    margin-bottom: 0.5rem;
+}
+
+.map {
+    margin-top: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Blog Page */
+.blog-header {
+    background: linear-gradient(135deg, #ff5722, #ff8c42);
+    color: white;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.blog-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.blog-posts {
+    padding: 4rem 0;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.blog-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-content {
+    padding: 1.5rem;
+}
+
+.blog-content h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.blog-meta {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    color: #ff5722;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Collections Page */
+.collections-header {
+    background: linear-gradient(135deg, #ff5722, #ff8c42);
+    color: white;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.collections-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.collections-grid {
+    padding: 4rem 0;
+}
+
+.collection-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.collection-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.collection-card:hover {
+    transform: translateY(-5px);
+}
+
+.collection-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.collection-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.collection-info h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.collection-link {
+    display: inline-block;
+    background: #ff5722;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: background 0.3s;
+}
+
+.collection-link:hover {
+    background: #e64a19;
+}
+
+/* Cart Page */
+.cart-header {
+    background: linear-gradient(135deg, #333, #555);
+    color: white;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.cart-header h1 {
+    font-size: 3rem;
+}
+
+.cart-content {
+    padding: 4rem 0;
+}
+
+.cart-empty {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.cart-empty h2 {
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.cart-table {
+    margin-bottom: 2rem;
+}
+
+.cart-header-row,
+.cart-item-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+}
+
+.cart-header-row {
+    font-weight: bold;
+    background: #f9f9f9;
+    border-bottom: 2px solid #ddd;
+}
+
+.product-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.product-info img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-summary {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 400px;
+    margin-left: auto;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.summary-row.total {
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.checkout-btn {
+    display: block;
+    background: #ff5722;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.checkout-btn:hover {
+    background: #e64a19;
+}
+
+/* Account Page */
+.account-header {
+    background: linear-gradient(135deg, #333, #555);
+    color: white;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.account-header h1 {
+    font-size: 3rem;
+}
+
+.account-content {
+    padding: 4rem 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.account-tabs {
+    display: flex;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 1rem;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.tab-btn.active {
+    border-bottom-color: #ff5722;
+    color: #ff5722;
+}
+
+.account-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.account-form h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.account-btn {
+    width: 100%;
+    background: #ff5722;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.account-btn:hover {
+    background: #e64a19;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        margin: 1rem 0;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .category-grid,
+    .product-grid,
+    .features,
+    .review-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .newsletter-form input {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .shop-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .filters {
+        order: 2;
+    }
+
+    .products-section {
+        order: 1;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .cart-header-row,
+    .cart-item-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .product-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cart-summary {
+        margin: 0;
+        max-width: none;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">
+      <h1>👟 ShoeHub</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a onclick="showPage('home')">Home</a></li>
+      <li><a onclick="showPage('shop')">Shop</a></li>
+      <li><a onclick="showPage('men')">Men</a></li>
+      <li><a onclick="showPage('women')">Women</a></li>
+      <li><a onclick="showPage('kids')">Kids</a></li>
+      <li><a onclick="showPage('collections')">Collections</a></li>
+      <li><a onclick="showPage('about')">About Us</a></li>
+      <li><a onclick="showPage('blog')">Blog</a></li>
+      <li><a onclick="showPage('contact')">Contact</a></li>
+    </ul>
+    <div class="nav-icons">
+      <a onclick="showPage('cart')">🛒 Cart</a>
+      <a onclick="showPage('account')">👤 Account</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Step Into Comfort & Style</h2>
+      <p>Discover the perfect pair for every occasion</p>
+      <a onclick="showPage('shop')" class="cta-button">Shop Now</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&h=600&fit=crop" alt="New Collection">
+    </div>
+  </section>
+
+  <!-- Featured Categories -->
+  <section class="categories">
+    <div class="container">
+      <h2>Featured Categories</h2>
+      <div class="category-grid">
+        <div class="category-card" onclick="showPage('shop')">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop" alt="Sneakers">
+          <h3>Sneakers</h3>
+        </div>
+        <div class="category-card" onclick="showPage('shop')">
+          <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400&h=300&fit=crop" alt="Formal Shoes">
+          <h3>Formal Shoes</h3>
+        </div>
+        <div class="category-card" onclick="showPage('shop')">
+          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=300&fit=crop" alt="Sports Shoes">
+          <h3>Sports Shoes</h3>
+        </div>
+        <div class="category-card" onclick="showPage('shop')">
+          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&h=300&fit=crop" alt="Sandals">
+          <h3>Sandals</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Sellers -->
+  <section class="best-sellers">
+    <div class="container">
+      <h2>Best Sellers</h2>
+      <div class="product-grid" id="best-sellers-grid">
+        <!-- Products will be loaded here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- New Arrivals -->
+  <section class="new-arrivals">
+    <div class="container">
+      <h2>New Arrivals</h2>
+      <div class="product-grid" id="new-arrivals-grid">
+        <!-- Products will be loaded here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="why-choose-us">
+    <div class="container">
+      <h2>Why Choose Us</h2>
+      <div class="features">
+        <div class="feature">
+          <h3>🚚 Free Shipping</h3>
+          <p>On orders over ₹999</p>
+        </div>
+        <div class="feature">
+          <h3>↩️ Easy Returns</h3>
+          <p>30-day return policy</p>
+        </div>
+        <div class="feature">
+          <h3>⭐ Premium Quality</h3>
+          <p>Authentic brands & materials</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews -->
+  <section class="reviews">
+    <div class="container">
+      <h2>Customer Reviews</h2>
+      <div class="review-grid">
+        <div class="review">
+          <p>"Amazing quality and fast delivery!"</p>
+          <span>- Rahul S.</span>
+        </div>
+        <div class="review">
+          <p>"Perfect fit and great comfort."</p>
+          <span>- Priya M.</span>
+        </div>
+        <div class="review">
+          <p>"Love the collection, will buy again!"</p>
+          <span>- Arjun K.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <section class="newsletter">
+    <div class="container">
+      <h2>Stay Updated</h2>
+      <p>Subscribe to get latest updates on new arrivals and exclusive offers.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+<!-- SHOP PAGE -->
+<div id="shop" class="page">
+  <section class="shop-header">
+    <div class="container">
+      <h1>Shop All Shoes</h1>
+      <p>Find your perfect pair from our collection</p>
+    </div>
+  </section>
+
+  <section class="shop-content">
+    <div class="container">
+      <div class="shop-layout">
+        <!-- Filters Sidebar -->
+        <aside class="filters">
+          <h3>Filters</h3>
+
+          <!-- Price Range -->
+          <div class="filter-group">
+            <h4>Price Range</h4>
+            <input type="range" id="price-min" min="1000" max="10000" value="1000">
+            <input type="range" id="price-max" min="1000" max="10000" value="10000">
+            <p>₹<span id="min-price">1000</span> - ₹<span id="max-price">10000</span></p>
+          </div>
+
+          <!-- Size -->
+          <div class="filter-group">
+            <h4>Size</h4>
+            <div class="size-options">
+              <button class="size-btn" data-size="6">6</button>
+              <button class="size-btn" data-size="7">7</button>
+              <button class="size-btn" data-size="8">8</button>
+              <button class="size-btn" data-size="9">9</button>
+              <button class="size-btn" data-size="10">10</button>
+              <button class="size-btn" data-size="11">11</button>
+              <button class="size-btn" data-size="12">12</button>
+            </div>
+          </div>
+
+          <!-- Color -->
+          <div class="filter-group">
+            <h4>Color</h4>
+            <div class="color-options">
+              <button class="color-btn" data-color="black" style="background: black;"></button>
+              <button class="color-btn" data-color="white" style="background: white; border: 1px solid #ddd;"></button>
+              <button class="color-btn" data-color="red" style="background: red;"></button>
+              <button class="color-btn" data-color="blue" style="background: blue;"></button>
+              <button class="color-btn" data-color="brown" style="background: brown;"></button>
+            </div>
+          </div>
+
+          <!-- Category -->
+          <div class="filter-group">
+            <h4>Category</h4>
+            <select id="category-filter">
+              <option value="all">All Categories</option>
+              <option value="sneakers">Sneakers</option>
+              <option value="formal">Formal Shoes</option>
+              <option value="sports">Sports Shoes</option>
+              <option value="sandals">Sandals</option>
+            </select>
+          </div>
+        </aside>
+
+        <!-- Products Section -->
+        <main class="products-section">
+          <!-- Sorting -->
+          <div class="sorting">
+            <span>Sort by:</span>
+            <select id="sort-select">
+              <option value="popularity">Popularity</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="newest">Newest</option>
+            </select>
+          </div>
+
+          <!-- Product Grid -->
+          <div class="product-grid" id="shop-products-grid">
+            <!-- Products will be loaded here -->
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- MEN PAGE -->
+<div id="men" class="page">
+  <section class="category-header">
+    <div class="container">
+      <h1>Men's Shoes</h1>
+      <p>Premium footwear for the modern gentleman</p>
+    </div>
+  </section>
+
+  <section class="category-products">
+    <div class="container">
+      <div class="product-grid" id="men-products-grid">
+        <!-- Products will be loaded here -->
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- WOMEN PAGE -->
+<div id="women" class="page">
+  <section class="category-header">
+    <div class="container">
+      <h1>Women's Shoes</h1>
+      <p>Elegant and comfortable footwear for every occasion</p>
+    </div>
+  </section>
+
+  <section class="category-products">
+    <div class="container">
+      <div class="product-grid" id="women-products-grid">
+        <!-- Products will be loaded here -->
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- KIDS PAGE -->
+<div id="kids" class="page">
+  <section class="category-header">
+    <div class="container">
+      <h1>Kids' Shoes</h1>
+      <p>Comfortable and durable shoes for growing feet</p>
+    </div>
+  </section>
+
+  <section class="category-products">
+    <div class="container">
+      <div class="product-grid" id="kids-products-grid">
+        <!-- Products will be loaded here -->
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- COLLECTIONS PAGE -->
+<div id="collections" class="page">
+  <section class="collections-header">
+    <div class="container">
+      <h1>Exclusive Collections</h1>
+      <p>Discover our curated collections for every style and occasion</p>
+    </div>
+  </section>
+
+  <section class="collections-grid">
+    <div class="container">
+      <div class="collection-items">
+        <div class="collection-card">
+          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&h=300&fit=crop" alt="Summer Collection">
+          <div class="collection-info">
+            <h3>Summer Collection</h3>
+            <p>Light, breezy shoes perfect for the warm season</p>
+            <a onclick="showPage('shop')" class="collection-link">Shop Now</a>
+          </div>
+        </div>
+
+        <div class="collection-card">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop" alt="Running Collection">
+          <h3>Running Collection</h3>
+          <p>High-performance shoes for your fitness journey</p>
+          <a onclick="showPage('shop')" class="collection-link">Shop Now</a>
+        </div>
+
+        <div class="collection-card">
+          <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400&h=300&fit=crop" alt="Premium Leather">
+          <h3>Premium Leather</h3>
+          <p>Luxurious leather footwear for the discerning gentleman</p>
+          <a onclick="showPage('shop')" class="collection-link">Shop Now</a>
+        </div>
+
+        <div class="collection-card">
+          <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop" alt="Casual Comfort">
+          <h3>Casual Comfort</h3>
+          <p>Everyday shoes that prioritize comfort and style</p>
+          <a onclick="showPage('shop')" class="collection-link">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ABOUT PAGE -->
+<div id="about" class="page">
+  <section class="about-header">
+    <div class="container">
+      <h1>About ShoeHub</h1>
+      <p>Bringing comfort and style to your every step</p>
+    </div>
+  </section>
+
+  <section class="brand-story">
+    <div class="container">
+      <h2>Our Story</h2>
+      <p>Founded in 2020, ShoeHub started with a simple mission: to provide high-quality, affordable footwear that combines comfort, style, and durability. We believe that everyone deserves to walk comfortably, whether you're running errands, hitting the gym, or attending a formal event.</p>
+      <p>Our journey began when our founder, Rajesh Kumar, noticed the lack of quality footwear options that didn't compromise on either comfort or style. After years of research and collaboration with top manufacturers, ShoeHub was born.</p>
+    </div>
+  </section>
+
+  <section class="mission-vision">
+    <div class="container">
+      <h2>Our Mission & Vision</h2>
+      <div class="mv-grid">
+        <div class="mv-card">
+          <h3>Our Mission</h3>
+          <p>To provide exceptional footwear that enhances people's lives by combining innovative design, superior comfort, and sustainable practices.</p>
+        </div>
+        <div class="mv-card">
+          <h3>Our Vision</h3>
+          <p>To become the leading footwear brand globally, known for quality, innovation, and customer satisfaction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-choose-us">
+    <div class="container">
+      <h2>Why Choose ShoeHub</h2>
+      <div class="features">
+        <div class="feature">
+          <h3>Premium Quality</h3>
+          <p>We source materials from trusted suppliers and ensure every pair meets our high standards.</p>
+        </div>
+        <div class="feature">
+          <h3>Customer First</h3>
+          <p>Your satisfaction is our priority. We offer easy returns and excellent customer support.</p>
+        </div>
+        <div class="feature">
+          <h3>Sustainable</h3>
+          <p>We're committed to eco-friendly practices and sustainable sourcing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- BLOG PAGE -->
+<div id="blog" class="page">
+  <section class="blog-header">
+    <div class="container">
+      <h1>Shoe Care & Fashion Blog</h1>
+      <p>Tips, trends, and insights from the world of footwear</p>
+    </div>
+  </section>
+
+  <section class="blog-posts">
+    <div class="container">
+      <div class="blog-grid">
+        <article class="blog-card">
+          <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=250&fit=crop" alt="Shoe Care">
+          <div class="blog-content">
+            <h3>How to Clean and Maintain Your Leather Shoes</h3>
+            <p class="blog-meta">Posted on April 15, 2024 • 5 min read</p>
+            <p>Learn the essential steps to keep your leather shoes looking new and lasting longer. From conditioning to polishing, we've got you covered.</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=250&fit=crop" alt="Running Shoes">
+          <h3>Best Running Shoes for Beginners in 2024</h3>
+          <p class="blog-meta">Posted on April 10, 2024 • 7 min read</p>
+          <p>Starting your running journey? Discover the top running shoes that provide comfort, support, and style for new runners.</p>
+          <a href="#" class="read-more">Read More</a>
+        </article>
+
+        <article class="blog-card">
+          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&h=250&fit=crop" alt="Summer Fashion">
+          <h3>Summer Shoe Trends: What's Hot This Season</h3>
+          <p class="blog-meta">Posted on April 5, 2024 • 4 min read</p>
+          <p>From sandals to espadrilles, explore the must-have shoe trends that will keep you stylish and comfortable this summer.</p>
+          <a href="#" class="read-more">Read More</a>
+        </article>
+
+        <article class="blog-card">
+          <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400&h=250&fit=crop" alt="Formal Shoes">
+          <h3>The Ultimate Guide to Formal Footwear</h3>
+          <p class="blog-meta">Posted on March 28, 2024 • 6 min read</p>
+          <p>Master the art of formal dressing with our comprehensive guide to oxfords, loafers, and dress shoes.</p>
+          <a href="#" class="read-more">Read More</a>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT PAGE -->
+<div id="contact" class="page">
+  <section class="contact-header">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>Get in touch with our team</p>
+    </div>
+  </section>
+
+  <section class="contact-content">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-form">
+          <h2>Send us a message</h2>
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+
+        <div class="contact-info">
+          <h2>Get in touch</h2>
+          <div class="info-item">
+            <h3>📧 Email</h3>
+            <p>support@shoehub.com</p>
+          </div>
+          <div class="info-item">
+            <h3>📞 Phone</h3>
+            <p>+91 98765 43210</p>
+          </div>
+          <div class="info-item">
+            <h3>📍 Address</h3>
+            <p>123 Fashion Street<br>New Delhi, India 110001</p>
+          </div>
+          <div class="info-item">
+            <h3>🕒 Business Hours</h3>
+            <p>Mon - Sat: 9:00 AM - 9:00 PM<br>Sunday: 10:00 AM - 6:00 PM</p>
+          </div>
+
+          <div class="map-placeholder">
+            <h3>📍 Find Us</h3>
+            <div class="map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.123456789012!2d77.2090!3d28.6139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM2JzUwLjAiTiA3N8KwMTInMzIuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CART PAGE -->
+<div id="cart" class="page">
+  <section class="cart-header">
+    <div class="container">
+      <h1>Shopping Cart</h1>
+    </div>
+  </section>
+
+  <section class="cart-content">
+    <div class="container">
+      <div class="cart-empty" id="cart-empty">
+        <h2>Your cart is empty</h2>
+        <p>Add some shoes to get started!</p>
+        <a onclick="showPage('shop')" class="cta-button">Continue Shopping</a>
+      </div>
+
+      <div class="cart-items" id="cart-items" style="display: none;">
+        <div class="cart-table">
+          <div class="cart-header-row">
+            <div>Product</div>
+            <div>Price</div>
+            <div>Quantity</div>
+            <div>Total</div>
+            <div>Action</div>
+          </div>
+          <div id="cart-items-list">
+            <!-- Cart items will be loaded here -->
+          </div>
+        </div>
+
+        <div class="cart-summary">
+          <div class="summary-row">
+            <span>Subtotal:</span>
+            <span id="subtotal">₹0</span>
+          </div>
+          <div class="summary-row">
+            <span>Shipping:</span>
+            <span id="shipping">₹0</span>
+          </div>
+          <div class="summary-row total">
+            <span>Total:</span>
+            <span id="total">₹0</span>
+          </div>
+          <button onclick="showPage('checkout')" class="checkout-btn">Proceed to Checkout</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ACCOUNT PAGE -->
+<div id="account" class="page">
+  <section class="account-header">
+    <div class="container">
+      <h1>My Account</h1>
+    </div>
+  </section>
+
+  <section class="account-content">
+    <div class="container">
+      <div class="account-tabs">
+        <button class="tab-btn active" onclick="showTab('login')">Login</button>
+        <button class="tab-btn" onclick="showTab('register')">Register</button>
+      </div>
+
+      <div id="login-tab" class="account-form">
+        <h2>Login to Your Account</h2>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" required>
+          </div>
+          <button type="submit" class="account-btn">Login</button>
+        </form>
+      </div>
+
+      <div id="register-tab" class="account-form" style="display: none;">
+        <h2>Create New Account</h2>
+        <form id="register-form">
+          <div class="form-group">
+            <label for="register-name">Full Name</label>
+            <input type="text" id="register-name" required>
+          </div>
+          <div class="form-group">
+            <label for="register-email">Email</label>
+            <input type="email" id="register-email" required>
+          </div>
+          <div class="form-group">
+            <label for="register-password">Password</label>
+            <input type="password" id="register-password" required>
+          </div>
+          <div class="form-group">
+            <label for="register-confirm">Confirm Password</label>
+            <input type="password" id="register-confirm" required>
+          </div>
+          <button type="submit" class="account-btn">Register</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>&copy; 2024 ShoeHub. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// Shoe Store - Product Database
+const shoes = [
+    {
+        id: 1,
+        name: "Classic White Sneakers",
+        category: "sneakers",
+        price: 2999,
+        image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=300&fit=crop",
+        description: "Comfortable white sneakers for everyday wear"
+    },
+    {
+        id: 2,
+        name: "Black Running Shoes",
+        category: "sports",
+        price: 3499,
+        image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=300&fit=crop",
+        description: "Lightweight running shoes with advanced cushioning"
+    },
+    {
+        id: 3,
+        name: "Brown Leather Boots",
+        category: "formal",
+        price: 4999,
+        image: "https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400&h=300&fit=crop",
+        description: "Premium leather boots for formal occasions"
+    },
+    {
+        id: 4,
+        name: "Casual Sandals",
+        category: "sandals",
+        price: 1499,
+        image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&h=300&fit=crop",
+        description: "Comfortable sandals for summer days"
+    },
+    {
+        id: 5,
+        name: "Red High Heels",
+        category: "women",
+        price: 3999,
+        image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=300&fit=crop",
+        description: "Elegant red heels for special occasions"
+    },
+    {
+        id: 6,
+        name: "Kids Sports Shoes",
+        category: "kids",
+        price: 1999,
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop",
+        description: "Durable sports shoes for active kids"
+    },
+    {
+        id: 7,
+        name: "Men's Formal Oxfords",
+        category: "men",
+        price: 4499,
+        image: "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=400&h=300&fit=crop",
+        description: "Classic oxford shoes for professional look"
+    },
+    {
+        id: 8,
+        name: "Women's Ballet Flats",
+        category: "women",
+        price: 2499,
+        image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=300&fit=crop",
+        description: "Comfortable ballet flats for everyday elegance"
+    }
+];
+
+// Navigation functionality
+function showPage(pageId) {
+    // Hide all pages
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => page.classList.remove('active'));
+
+    // Show selected page
+    const targetPage = document.getElementById(pageId);
+    if (targetPage) {
+        targetPage.classList.add('active');
+    }
+
+    // Load page-specific content
+    if (pageId === 'home') {
+        loadBestSellers();
+        loadNewArrivals();
+    } else if (pageId === 'shop') {
+        loadShopProducts();
+        setupFilters();
+        setupSorting();
+    } else if (pageId === 'men') {
+        loadMenProducts();
+    } else if (pageId === 'women') {
+        loadWomenProducts();
+    } else if (pageId === 'kids') {
+        loadKidsProducts();
+    } else if (pageId === 'cart') {
+        displayCart();
+    }
+}
+
+// Product loading functions
+function createProductCard(shoe) {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+
+    card.innerHTML = `
+        <img src="${shoe.image}" alt="${shoe.name}">
+        <div class="product-info">
+            <h3>${shoe.name}</h3>
+            <p class="price">₹${shoe.price}</p>
+            <button class="add-to-cart-btn" onclick="addToCart(${shoe.id})">Add to Cart</button>
+        </div>
+    `;
+
+    return card;
+}
+
+function loadBestSellers() {
+    const bestSellersGrid = document.getElementById('best-sellers-grid');
+    if (!bestSellersGrid) return;
+
+    bestSellersGrid.innerHTML = '';
+    const bestSellers = shoes.slice(0, 4);
+
+    bestSellers.forEach(shoe => {
+        const productCard = createProductCard(shoe);
+        bestSellersGrid.appendChild(productCard);
+    });
+}
+
+function loadNewArrivals() {
+    const newArrivalsGrid = document.getElementById('new-arrivals-grid');
+    if (!newArrivalsGrid) return;
+
+    newArrivalsGrid.innerHTML = '';
+    const newArrivals = shoes.slice(4, 8);
+
+    newArrivals.forEach(shoe => {
+        const productCard = createProductCard(shoe);
+        newArrivalsGrid.appendChild(productCard);
+    });
+}
+
+function loadMenProducts() {
+    const menGrid = document.getElementById('men-products-grid');
+    if (!menGrid) return;
+
+    menGrid.innerHTML = '';
+    const menShoes = shoes.filter(shoe => shoe.category === 'men' || shoe.category === 'formal' || shoe.category === 'sports');
+
+    menShoes.forEach(shoe => {
+        const productCard = createProductCard(shoe);
+        menGrid.appendChild(productCard);
+    });
+}
+
+function loadWomenProducts() {
+    const womenGrid = document.getElementById('women-products-grid');
+    if (!womenGrid) return;
+
+    womenGrid.innerHTML = '';
+    const womenShoes = shoes.filter(shoe => shoe.category === 'women' || shoe.category === 'sneakers' || shoe.category === 'sandals');
+
+    womenShoes.forEach(shoe => {
+        const productCard = createProductCard(shoe);
+        womenGrid.appendChild(productCard);
+    });
+}
+
+function loadKidsProducts() {
+    const kidsGrid = document.getElementById('kids-products-grid');
+    if (!kidsGrid) return;
+
+    kidsGrid.innerHTML = '';
+    const kidsShoes = shoes.filter(shoe => shoe.category === 'kids' || shoe.category === 'sneakers' || shoe.category === 'sports');
+
+    kidsShoes.forEach(shoe => {
+        const productCard = createProductCard(shoe);
+        kidsGrid.appendChild(productCard);
+    });
+}
+
+// Shop functionality
+let currentFilters = {
+    category: 'all',
+    priceMin: 1000,
+    priceMax: 10000,
+    sizes: [],
+    colors: []
+};
+
+let currentSort = 'popularity';
+
+function loadShopProducts() {
+    const shopGrid = document.getElementById('shop-products-grid');
+    if (!shopGrid) return;
+
+    shopGrid.innerHTML = '';
+
+    let filteredShoes = shoes.filter(shoe => {
+        if (currentFilters.category !== 'all' && shoe.category !== currentFilters.category) {
+            return false;
+        }
+        if (shoe.price < currentFilters.priceMin || shoe.price > currentFilters.priceMax) {
+            return false;
+        }
+        return true;
+    });
+
+    filteredShoes = sortProducts(filteredShoes, currentSort);
+
+    filteredShoes.forEach(shoe => {
+        const productCard = createShopProductCard(shoe);
+        shopGrid.appendChild(productCard);
+    });
+}
+
+function createShopProductCard(shoe) {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+
+    card.innerHTML = `
+        <img src="${shoe.image}" alt="${shoe.name}">
+        <div class="product-info">
+            <h3>${shoe.name}</h3>
+            <p class="price">₹${shoe.price}</p>
+            <p class="description">${shoe.description}</p>
+            <button class="add-to-cart-btn" onclick="addToCart(${shoe.id})">Add to Cart</button>
+        </div>
+    `;
+
+    return card;
+}
+
+function setupFilters() {
+    const priceMin = document.getElementById('price-min');
+    const priceMax = document.getElementById('price-max');
+    const minPriceDisplay = document.getElementById('min-price');
+    const maxPriceDisplay = document.getElementById('max-price');
+
+    if (priceMin && priceMax) {
+        priceMin.addEventListener('input', function() {
+            minPriceDisplay.textContent = this.value;
+            currentFilters.priceMin = parseInt(this.value);
+            loadShopProducts();
+        });
+
+        priceMax.addEventListener('input', function() {
+            maxPriceDisplay.textContent = this.value;
+            currentFilters.priceMax = parseInt(this.value);
+            loadShopProducts();
+        });
+    }
+
+    const categoryFilter = document.getElementById('category-filter');
+    if (categoryFilter) {
+        categoryFilter.addEventListener('change', function() {
+            currentFilters.category = this.value;
+            loadShopProducts();
+        });
+    }
+}
+
+function setupSorting() {
+    const sortSelect = document.getElementById('sort-select');
+    if (sortSelect) {
+        sortSelect.addEventListener('change', function() {
+            currentSort = this.value;
+            loadShopProducts();
+        });
+    }
+}
+
+function sortProducts(products, sortBy) {
+    switch (sortBy) {
+        case 'price-low':
+            return products.sort((a, b) => a.price - b.price);
+        case 'price-high':
+            return products.sort((a, b) => b.price - a.price);
+        case 'newest':
+            return products.sort((a, b) => b.id - a.id);
+        case 'popularity':
+        default:
+            return products;
+    }
+}
+
+// Cart functionality
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function addToCart(productId) {
+    const existingItem = cart.find(item => item.id === productId);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ id: productId, quantity: 1 });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`Added ${shoes.find(s => s.id === productId).name} to cart!`);
+}
+
+function displayCart() {
+    const cartEmpty = document.getElementById('cart-empty');
+    const cartItems = document.getElementById('cart-items');
+    const cartItemsList = document.getElementById('cart-items-list');
+
+    if (!cartEmpty || !cartItems || !cartItemsList) return;
+
+    if (cart.length === 0) {
+        cartEmpty.style.display = 'block';
+        cartItems.style.display = 'none';
+        return;
+    }
+
+    cartEmpty.style.display = 'none';
+    cartItems.style.display = 'block';
+
+    cartItemsList.innerHTML = '';
+    let subtotal = 0;
+
+    cart.forEach((item, index) => {
+        const shoe = shoes.find(s => s.id === item.id);
+        const itemTotal = shoe.price * item.quantity;
+        subtotal += itemTotal;
+
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-item-row';
+        cartItem.innerHTML = `
+            <div class="product-info">
+                <img src="${shoe.image}" alt="${shoe.name}">
+                <div>
+                    <h4>${shoe.name}</h4>
+                    <p>Size: ${item.size || 'N/A'}</p>
+                </div>
+            </div>
+            <div>₹${shoe.price}</div>
+            <div>
+                <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)">
+            </div>
+            <div>₹${itemTotal}</div>
+            <div>
+                <button onclick="removeFromCart(${index})">Remove</button>
+            </div>
+        `;
+        cartItemsList.appendChild(cartItem);
+    });
+
+    const shipping = subtotal > 999 ? 0 : 100;
+    const total = subtotal + shipping;
+
+    document.getElementById('subtotal').textContent = `₹${subtotal}`;
+    document.getElementById('shipping').textContent = shipping === 0 ? 'Free' : `₹${shipping}`;
+    document.getElementById('total').textContent = `₹${total}`;
+}
+
+function updateQuantity(index, quantity) {
+    cart[index].quantity = parseInt(quantity);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart();
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart();
+}
+
+// Account functionality
+function showTab(tabName) {
+    const tabs = document.querySelectorAll('.account-form');
+    const buttons = document.querySelectorAll('.tab-btn');
+
+    tabs.forEach(tab => tab.style.display = 'none');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    document.getElementById(tabName + '-tab').style.display = 'block';
+    event.target.classList.add('active');
+}
+
+// Form handlers
+document.addEventListener('DOMContentLoaded', function() {
+    // Newsletter form
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert(`Thank you for subscribing with ${email}!`);
+        });
+    }
+
+    // Contact form
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            alert(`Thank you for your message, ${data.name}! We'll get back to you soon.`);
+            this.reset();
+        });
+    }
+
+    // Login form
+    const loginForm = document.getElementById('login-form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Login functionality would be implemented here!');
+        });
+    }
+
+    // Register form
+    const registerForm = document.getElementById('register-form');
+    if (registerForm) {
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('register-password').value;
+            const confirm = document.getElementById('register-confirm').value;
+
+            if (password !== confirm) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            alert('Registration functionality would be implemented here!');
+        });
+    }
+
+    // Load initial content
+    loadBestSellers();
+    loadNewArrivals();
+});
+</script>
+</body>
+</html>
